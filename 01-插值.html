@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .demo {
+            font-family: sans-serif;
+            border: 1px solid #eee;
+            border-radius: 2px;
+            padding: 20px 30px;
+            margin-top: 1em;
+            margin-bottom: 40px;
+            user-select: none;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="example1" class="demo">
+        <p>Using mustaches: {{ rawHtml }}</p>
+        <p>Using v-html directive: <span v-html="rawHtml"></span></p>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        const RenderHTMLApp = {
+            data() {
+                return {
+                    rawHtml: `<span style="color: red">This should be red.</span>`
+                }
+            }
+        }
+        Vue.createApp(RenderHTMLApp).mount('#example1')
+    </script>
+</body>
+
+</html>
