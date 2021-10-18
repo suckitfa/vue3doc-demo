@@ -122,3 +122,44 @@ for in是遍历（object）键名，for of是遍历（array）键值
 v-for="(name,key) in obj"
 v-for="()"
 ```
+### v-for就地更新
+当 Vue 正在更新使用 v-for 渲染的元素列表时，它默认使用“就地更新”的策略。如果数据项的顺序被改变，Vue 将不会移动 DOM 元素来匹配数据项的顺序，而是就地更新每个元素，并且确保它们在每个索引位置正确渲染。
+
+### 需要为v-if提供一个唯一的id(基本类型)
+
+### 数组的变异方法
+- push
+- pop
+- shift
+- unshift
+- splice
+- sort
+- reverse
+
+替换数组同样的高效
+
+在组件中使用v-for,任何数据都不会被自动传递到组件里，因为组件有自己独立的作用域。
+### 事件处理
+> 方法只有纯粹的数据逻辑，而不是去处理 DOM 事件细节。
+- 直接在v-on后写逻辑
+- 绑定一个方法
+```vue
+<button @click="handleClick">
+</button>
+```
+- 语句调用
+- 多事件处理
+```vue
+<button @click="one($event), two($event)">
+  Submit
+</button>
+```
+### 事件修饰符
+- stop (event.stopPropagation)
+- prevent (event.preventDefault)
+- capture
+- self
+- once
+- passive
+
+> 不像其它只能对原生的 DOM 事件起作用的修饰符，.once 修饰符还能被用到自定义的组件事件上。如果你还没有阅读关于组件的文档，现在大可不必担心。
